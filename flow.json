@@ -160,7 +160,7 @@
     {
         "id": "e2a0c6245aa7e6bd",
         "type": "OpcUa-Endpoint",
-        "endpoint": "opc.tcp://0.0.0.0:4840/freeopcua/server/",
+        "endpoint": "opc.tcp://127.0.0.1:4840/freeopcua/server/",
         "secpol": "None",
         "secmode": "None",
         "none": true,
@@ -429,7 +429,7 @@
         "links": [
             "c6a0297abb895904"
         ],
-        "x": 685,
+        "x": 665,
         "y": 200,
         "wires": []
     },
@@ -906,6 +906,363 @@
                 "14a4f0ac8f3aeca7"
             ]
         ]
+    },
+    {
+        "id": "1f8ec05afa877f0b",
+        "type": "function",
+        "z": "6bfa06b69a24efd6",
+        "name": "function 2",
+        "func": "/* Create a for loop javascript that counts 1 and stop at 10 */\n\nfor (var i = 1; i <= 10; i++) {\n   msg.payload=i;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "a2c9d26253c3e46b"
+            ]
+        ]
+    },
+    {
+        "id": "2eecc1080f98d140",
+        "type": "inject",
+        "z": "6bfa06b69a24efd6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 400,
+        "wires": [
+            [
+                "1f8ec05afa877f0b"
+            ]
+        ]
+    },
+    {
+        "id": "a2c9d26253c3e46b",
+        "type": "debug",
+        "z": "6bfa06b69a24efd6",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f6bffe0f701ae79c",
+        "type": "comment",
+        "z": "6bfa06b69a24efd6",
+        "name": "For loop using javascript from CHATGFPT",
+        "info": "",
+        "x": 280,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5168e9d08c5ebc3d",
+        "type": "comment",
+        "z": "6bfa06b69a24efd6",
+        "name": "While loop using javascript from CHATGPT",
+        "info": "",
+        "x": 280,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1f61d0576cc843d3",
+        "type": "function",
+        "z": "6bfa06b69a24efd6",
+        "name": "function 3",
+        "func": "/* create a while loop javascript 1 to 10 */\nvar i = 1;\nwhile (i <= 10) {\n    msg.payload=i;\n    /*console.log(i);*/\n    i++;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 540,
+        "wires": [
+            [
+                "5f73fc9dd3d67dc1"
+            ]
+        ]
+    },
+    {
+        "id": "d227b3feabb3c1a6",
+        "type": "inject",
+        "z": "6bfa06b69a24efd6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 540,
+        "wires": [
+            [
+                "1f61d0576cc843d3"
+            ]
+        ]
+    },
+    {
+        "id": "5f73fc9dd3d67dc1",
+        "type": "debug",
+        "z": "6bfa06b69a24efd6",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bec107689bc1fa48",
+        "type": "function",
+        "z": "6bfa06b69a24efd6",
+        "name": "function 4",
+        "func": "/* create a for loop that can be count from 1 to 10 and can be stop by a boolean during the execution loop whenever needed */\n\nvar stop = false;\nfor (var i = 1; i <= 10 && !stop; i++) {\n    console.log(i);\n\n    msg.payload = i;\n    if (i == 5) {\n       \n        stop = true;\n        \n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 660,
+        "wires": [
+            [
+                "377cdb0a8b418080"
+            ]
+        ]
+    },
+    {
+        "id": "377cdb0a8b418080",
+        "type": "debug",
+        "z": "6bfa06b69a24efd6",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "45fade60795ced60",
+        "type": "comment",
+        "z": "6bfa06b69a24efd6",
+        "name": "for loop with stop bit using javascript from CHATGPT",
+        "info": "",
+        "x": 310,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d46c4d679146c84d",
+        "type": "inject",
+        "z": "6bfa06b69a24efd6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 190,
+        "y": 660,
+        "wires": [
+            [
+                "bec107689bc1fa48"
+            ]
+        ]
+    },
+    {
+        "id": "8605b9118869528e",
+        "type": "function",
+        "z": "6bfa06b69a24efd6",
+        "name": "function 5",
+        "func": "/* create a double for loop and stop the loop if a boolean condition is met */\n\nvar stop = false;\n\nfor (var i = 1; i <= 10 && !stop; i++) {\n    for (var j = 1; j <= 10 && !stop; j++) {\n        console.log(i + ' ' + j);\n        if (i == 5 && j == 5) {\n            stop = true;\n           \n        }\n    }\n}\nmsg.payload = j;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 780,
+        "wires": [
+            [
+                "12ae044d371d69b2"
+            ]
+        ]
+    },
+    {
+        "id": "ff9240c980b511e7",
+        "type": "inject",
+        "z": "6bfa06b69a24efd6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 780,
+        "wires": [
+            [
+                "8605b9118869528e"
+            ]
+        ]
+    },
+    {
+        "id": "12ae044d371d69b2",
+        "type": "debug",
+        "z": "6bfa06b69a24efd6",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "af73d2480e03e46c",
+        "type": "comment",
+        "z": "6bfa06b69a24efd6",
+        "name": "Double for loop with stop bit using javascript from CHATGPT",
+        "info": "",
+        "x": 330,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "1814e1a744dad212",
+        "type": "function",
+        "z": "6bfa06b69a24efd6",
+        "name": "function 6",
+        "func": "var i = 1;\nvar j = 1;\nvar stop = false;\n\n\nfor (; i <= 10 && !stop; i++) {\n    for (; j <= 10 && !stop; j++) {\n        console.log(i + ' ' + j);\n        if (i == 5 && j == 5) {\n            stop = true;\n        }\n    }\n    j = 1;\n}\n\nmsg.payload=i;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 880,
+        "wires": [
+            [
+                "bda3812d34fe8591"
+            ]
+        ]
+    },
+    {
+        "id": "6e5511327c96bec5",
+        "type": "inject",
+        "z": "6bfa06b69a24efd6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 880,
+        "wires": [
+            [
+                "1814e1a744dad212"
+            ]
+        ]
+    },
+    {
+        "id": "bda3812d34fe8591",
+        "type": "debug",
+        "z": "6bfa06b69a24efd6",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 880,
+        "wires": []
     },
     {
         "id": "7eb19d8a.0dd2fc",
